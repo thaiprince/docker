@@ -7,7 +7,7 @@
 
 https://github.com/tintucthethao/docker/assets/64295974/33c40c86-017a-4e4e-89d3-5e381d22b68b
 
-
+https://github.com/thaiprince/docker/blob/master/259689952-33c40c86-017a-4e4e-89d3-5e381d22b68b%20(1).mp4
 # docker
 Đây là file docker config cho các dự án web của công ty
 npm install laravel-mix --save-dev
