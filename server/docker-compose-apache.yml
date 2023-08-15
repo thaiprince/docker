@@ -1,0 +1,51 @@
+services:
+  anhnt-web:
+    container_name: anhnt-web
+    build: .
+    volumes:
+      - ../:/var/www/html
+      - ./apache2/apache2.conf:/etc/apache2/apache2.conf
+      - ./apache2/000-default.conf:/etc/apache2/sites-available/000-default.conf
+      - ./apache2/default-ssl.conf:/etc/apache2/sites-available/default-ssl.conf
+      - ./php/php.ini:/etc/php/8.1/apache2/php.ini
+      - ./cert/my-cert.pem:/etc/ssl/certs/my-cert.pem
+      - ./cert/my-key.pem:/etc/ssl/private/my-key.pem
+    ports:
+      - 80:80
+      - 443:443
+#  mysql_db:
+#    image: mysql:latest
+#    container_name: mysql_db
+#    environment:
+#      MYSQL_ROOT_PASSWORD: root
+#      MYSQL_DATABASE: anhnt
+#    volumes:
+#      - ./mysql/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
+#    ports:
+#      - 3306:3306
+#  mongo_db:
+#    image: mongo:latest
+#    container_name: mongo_db
+#    environment:
+#      MONGO_INITDB_ROOT_USERNAME: root
+#      MONGO_INITDB_ROOT_PASSWORD: root
+#    volumes:
+#      - ./mongo/mongod.conf:/etc/mongod.conf
+#    ports:
+#      - 27017:27017
+#  phpmyadmin:
+#    image: phpmyadmin:latest
+#    container_name: phpmyadmin
+#    links:
+#      - mysql_db
+#    ports:
+#      - 9080:80
+#    volumes:
+#      - ./phpmyadmin/config.inc.php:/etc/phpmyadmin/config.inc.php
+#    environment:
+#      PMA_ARBITRARY: 1
+#      PMA_HOST: mysql_db
+#      PMA_PORT: 3306
+#      UPLOAD_LIMIT: 1024M
+#      MEMORY_LIMIT: 1024M
+#      MAX_EXECUTION_TIME: 600
